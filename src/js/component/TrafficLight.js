@@ -45,7 +45,7 @@ export default function TrafficLight() {
   return (
     <div className="d-flex bg-dark justify-content-center align-items-center min-vh-100">
       <div className="">
-
+          <div className=" bg-black m-auto" style={{width: '15px', height: '60px'}}></div>
           <div className=" bg-black rounded mx-auto mb-5" style={{ width: '150px', padding: '10px'}}>
             <div className="red bg-danger mx-auto rounded-circle my-3" style={{ width: '85px', height: '85px', boxShadow: `${selectedColor === "red" ? glow : ''}`}} onClick={() => {setSelectedColor('red')}}></div>
             <div className="yello bg-warning mx-auto rounded-circle my-3" style={{ width: '85px', height: '85px', boxShadow: `${selectedColor === "yello" ? glow : ''}`}} onClick={()=> {setSelectedColor('yello')}}></div>

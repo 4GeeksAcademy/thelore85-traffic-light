@@ -9,6 +9,11 @@ export default function TrafficLight() {
 
   const handleShow = ()=>{ showPurple ? setShowPurple(false) : setShowPurple(true) }
   const handleAnimation = () => { animation ? setAnimation(false) : setAnimation(true)}
+  const handleReset = ()=>{
+    setAnimation(false)
+    setSelectedColor(null)
+    setShowPurple(false)
+  }
 
   let time = 0;
   
@@ -23,10 +28,10 @@ export default function TrafficLight() {
           setSelectedColor('red');
         } else if (selectedColor === 'red') {
           setSelectedColor('purple');
-        } else if (selectedColor === 'purple') {
+        } else {
           setSelectedColor('green');
         }
-      }, 1000);
+      }, 500);
   
       return () => {
         clearTimeout(timer); // Cambiato da clearInterval a clearTimeout
@@ -52,13 +57,12 @@ export default function TrafficLight() {
 
           <div className="text-center">
             <button className="btn btn-primary me-3" onClick={handleShow}>Super Traffic Light</button>
-            <button className="btn btn-light text-primary" onClick={handleAnimation}>
+            <button className="btn btn-light text-primary me-3" onClick={handleAnimation}>
               {animation ? "Stop Animation" : "Start Animation"}
             </button>
+            <button className="btn btn-danger me-3" onClick={handleReset}>Reset</button>
           </div>
       </div>
-
-
 
     </div>
   )
